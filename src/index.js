@@ -1,3 +1,5 @@
 const Calendar = require('./calendar.js')
+const Data = require('./data.js')
 // import Calendar from './calendar.js'
-console.log('WEBPACK', Calendar)
+
+console.log('ESOF 2019', Data)
