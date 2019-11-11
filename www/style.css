@@ -1,6 +1,9 @@
 
 /* Set variables for all modes */
 :root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 20px;
+
   /* Set the background of the entire app */
   --ion-background-color: #f2f2f2;
 
@@ -17,3 +20,19 @@
 .md {
   --ion-text-color: #222;
 }
+
+/*
+* START CALENDAR
+*/
+ion-item
+{
+  --background: #ffffff;
+}
+ion-item > ion-label
+{
+  border-left: 2px solid #3bc7c4;
+  padding-left: 10px;
+}
+/*
+* END CALENDAR
+*/
