@@ -1,185 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESOF 2019</title>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESOF 2019</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+  <!-- webgis w/ leaflet-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+  <!-- end webgis w/ leaflet-->
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-    <ion-app>
-        <ion-tabs>
-            <!-- START CALENDAR -->
-            <ion-tab tab="calendar">
-                <ion-header translucent>
-                    <ion-toolbar color="primary">
-                        <ion-title color="dark"><b>Schedule</b></ion-title>
-                    </ion-toolbar>
-                </ion-header>
-                <ion-content>
-                    <ion-list id="calendarData">
-                        <!-- <ion-item-group>
-                            <ion-item-divider sticky>
-                                <ion-label>8:00</ion-label>
-                            </ion-item-divider>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Colazione</h3>
-                                    <p>8:00 &mdash; 9:00: Caffè degli specchi</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Post-Colazione</h3>
-                                    <p>9:00 &mdash; 10:00: Caffè degli specchi</p>
-                                </ion-label>
-                            </ion-item>
-                        </ion-item-group>
+  <ion-app>
+    <ion-tabs id="tabs">
+        <!-- START CALENDAR  -->
+        <ion-tab tab="calendar">
+            <ion-header translucent>
+                <ion-toolbar color="primary">
+                    <ion-title>Schedule</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content><ion-list id="calendarData"> </ion-list></ion-content>
+        </ion-tab>
+        <!-- END  CALENDAR -->
+        <!-- START SPEAKERS  -->
+        <ion-tab tab="speakers">
+            <ion-header translucent>
+                <ion-toolbar color="secondary">
+                    <ion-title>Speakers</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="speaker-wrapper">
+                <ion-grid fixed>
+                  <ion-row class="ion-align-items-stretch" id="speakerDom">
+                  </ion-row>
+                </ion-grid>
+              </ion-content>
 
-                        <ion-item-group>
-                            <ion-item-divider sticky>
-                                <ion-label>9:00</ion-label>
-                            </ion-item-divider>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Presentazione ESOF 2019</h3>
-                                    <p>9:00 &mdash; 9:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                            <ion-item>
-                                <ion-label>
-                                    <h3>Caffè della scienza</h3>
-                                    <p>10:00 &mdash; 10:30: Piazza Unità</p>
-                                </ion-label>
-                            </ion-item>
-                        </ion-item-group> -->
-                    </ion-list>
-                </ion-content>
-            </ion-tab>
-            <!-- STOP CALENDAR -->
+        </ion-tab>
+        <!-- END SPEAKERS  -->
 
-            <!-- START SPEAKERS -->
-            <ion-tab tab="speakers">
-                <ion-header translucent>
-                    <ion-toolbar color="primary">
-                        <ion-title color="dark"><b>Speakers</b></ion-title>
-                    </ion-toolbar>
-                </ion-header>
-                <ion-content>
-                    <ion-list id="speakersData">
-                        <ion-card>
-                            <img src="https://www.turinhouse.it/wp-content/uploads/2017/01/Adam-Jarod-400x400.jpg" />
-                            <ion-card-header>
-                                <ion-card-subtitle>Mario Rossi</ion-card-subtitle>
-                                <ion-card-title>Colazione</ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content> bla bla bla pizza rossa </ion-card-content>
-                        </ion-card>
+        <!-- START MAP  -->
+        <ion-tab tab="map">
+            <ion-header>
+                <ion-toolbar color="tertiary">
+                    <ion-title>Map</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div id="mapView"></div>
+            </ion-content>
+        </ion-tab>
+        <!-- END MAP  -->
 
-                        <ion-card>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNP8rL0bm9gKOHfyP6W6B1g3rSiL651hYwJdh-ivCXKbJM-vQTHA&s" />
-                            <ion-card-header>
-                                <ion-card-subtitle>Luigi Verde</ion-card-subtitle>
-                                <ion-card-title>Pranzo</ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content> ble ble ble pizza verde </ion-card-content>
-                        </ion-card>
-
-                        <ion-card>
-                            <img src="https://0.academia-photos.com/3872224/12599680/14017225/s200_mario.rossi_monti.jpg" />
-                            <ion-card-header>
-                                <ion-card-subtitle>Sonic Blu</ion-card-subtitle>
-                                <ion-card-title>Cena</ion-card-title>
-                            </ion-card-header>
-                            <ion-card-content> blu blu blu pizza blu </ion-card-content>
-                        </ion-card>
-                    </ion-list>
-                </ion-content>
-            </ion-tab>
-            <!-- END SPEAKERS -->
-
-            <ion-tab tab="map">
-                <h1>Map</h1>
-            </ion-tab>
-            <ion-tab tab="info">
-                <h1>Information</h1>
-            </ion-tab>
-            <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="calendar">
-                    <ion-label>Schedule</ion-label>
-                    <ion-icon name="calendar"></ion-icon>
-                </ion-tab-button>
-                <ion-tab-button tab="speakers">
-                    <ion-label>Speakers</ion-label>
-                    <ion-icon name="people"></ion-icon>
-                </ion-tab-button>
-                <ion-tab-button tab="map">
-                    <ion-label>Map</ion-label>
-                    <ion-icon name="map"></ion-icon>
-                </ion-tab-button>
-                <ion-tab-button tab="info">
-                    <ion-label>Information</ion-label>
-                    <ion-icon name="information-circle"></ion-icon>
-                </ion-tab-button>
-            </ion-tab-bar>
-        </ion-tabs>
-    </ion-app>
-
-    <script src="app.js"></script>
-
+        <ion-tab tab="info">
+            <h1>Information</h1>
+        </ion-tab>
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="calendar">
+                <ion-label>Schedule</ion-label>
+                <ion-icon name="calendar"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="speakers">
+                <ion-label>Speakers</ion-label>
+                <ion-icon name="people"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="map">
+                <ion-label>Map</ion-label>
+                <ion-icon name="map"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="info">
+                <ion-label>Information</ion-label>
+                <ion-icon name="information-circle"></ion-icon>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+  </ion-app>
+  <script src="app.js"></script>
 </body>
-
 </html>
