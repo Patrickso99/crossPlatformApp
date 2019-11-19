@@ -4,4 +4,6 @@ Dev mode:
 
 - npm run start:dev
 
--
+Production mode:
+- npm run build
+- ionic build
