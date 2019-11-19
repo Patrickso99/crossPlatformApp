@@ -1,5 +1,7 @@
 # General
 .DS_Store
+package-lock.json
+www/*
 
 # Logs
 logs

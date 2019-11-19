@@ -4,7 +4,7 @@ module.exports = {
   name: 'Map',
   version: "0.1",
   render: function () {
-    console.log('*** Render Map ****')
+    console.log('*** Render Speaker ****')
     console.log('Leaflet', L)
     // MAP INIT
     // crea mappa webgis
